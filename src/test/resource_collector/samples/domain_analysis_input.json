@@ -1,0 +1,43 @@
+{
+  "messages": [
+    {
+      "content": {
+        "domain_analysis": {
+          "identified_resources": [
+            "prod-postgres-db",
+            "orders-api-gateway",
+            "orders-lambda-function"
+          ],
+          "potential_issues": [
+            "Database connection pool exhaustion",
+            "High CPU utilization on RDS instance",
+            "Lambda function timeout issues"
+          ],
+          "raw_analysis": "Domain analysis indicates RDS connection issues affecting the orders processing pipeline..."
+        }
+      }
+    }
+  ],
+  "context": {
+    "alarm_analysis": {
+      "identified_alarm_types": ["RDSConnectionFailures"],
+      "severity": "High",
+      "extracted_info": {
+        "alarm_name": "RDS-Connection-Failures",
+        "related_resources": [
+          {
+            "resource_id": "prod-postgres-db",
+            "resource_type": "AWS::RDS::DBInstance",
+            "resource_name": "Production PostgreSQL Database"
+          }
+        ]
+      }
+    },
+    "initial_decision": {
+      "alert_type": "RDSConnectionFailures",
+      "resource_type": "AWS::RDS::DBInstance",
+      "severity": "High",
+      "recommended_path": "resource"
+    }
+  }
+}

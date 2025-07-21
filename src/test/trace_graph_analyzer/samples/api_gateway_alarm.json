@@ -1,0 +1,71 @@
+{
+    "messages":[
+        {
+            "content":
+            {
+                "decision": {
+                    "alert_type": "performance",
+                    "resource_type": "API Gateway",
+                    "severity": "High",
+                    "recommended_path": "trace",
+                    "reasoning": "API Gateway GET endpoint shows success rate below threshold, indicating potential backend service or connectivity issues requiring detailed trace investigation."
+                },
+                "alarm_summary": {
+                    "name": "serverless-app-for-aiops-GetItemByIdAlarm79D169FD-nqtPcJ9UeHFs",
+                    "resource": null,
+                    "resource_type": "AWS::APIGateway::RestApi",
+                    "metric": "Success Rate",
+                    "current_value": null,
+                    "threshold": 20.0
+                }
+            }
+        }
+    ],
+    "context":{
+        "alarm_analysis": {
+            "identified_alarm_types": [
+            "API Gateway Performance Degradation",
+            "Success Rate Alarm"
+            ],
+            "severity": "High",
+            "extracted_info": {
+            "alarm_name": "serverless-app-for-aiops-GetItemByIdAlarm79D169FD-nqtPcJ9UeHFs",
+            "alarm_start_time": "2025-06-12T06:00:35Z",
+            "related_resources": [
+                {
+                "resource_type": "AWS::APIGateway::RestApi",
+                "resource_id": null,
+                "resource_name": "GET /items/{id} Endpoint"
+                }
+            ],
+            "region": "ap-southeast-1",
+            "account_id": "613477150601",
+            "metric_details": {
+                "namespace": "AWS/ApiGateway",
+                "metric_name": "Success Rate",
+                "threshold": 20.0,
+                "current_value": null,
+                "period": "60 seconds"
+            }
+            },
+            "possible_causes": [
+            "Backend service failures or timeouts for the GET /items/{id} endpoint",
+            "Network connectivity issues between API Gateway and backend services",
+            "Sudden increase in error rates or service degradation in the serverless application"
+            ],
+            "additional_info": {
+            "trace_search_criteria": "API Gateway trace for GET /items/{id}",
+            "related_services": [
+                "API Gateway",
+                "Lambda",
+                "SNS"
+            ],
+            "recommended_metrics_to_check": [
+                "API Gateway 4XX and 5XX Error Rates",
+                "Lambda Function Errors",
+                "Backend Service Latency"
+            ]
+            }
+        }
+    }
+}

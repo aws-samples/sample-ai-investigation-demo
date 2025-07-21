@@ -1,0 +1,46 @@
+"""
+You are an alarm analysis expert specializing in AWS CloudWatch alarms. 
+
+Analyze this CloudWatch alarm and extract structured information:
+
+INPUT_DATA
+
+Return your analysis as a valid JSON object with the following structure:
+{{
+  "identified_alarm_types": ["Primary alarm type", "Secondary alarm type (if applicable)"],
+  "start_time": "ISO format timestamp when the alarm was triggered",
+  "severity": "High/Medium/Low",
+  "extracted_info": {{
+    "alarm_name": "Name of the alarm from the description",
+    "alarm_start_time": "ISO format timestamp when the alarm was triggered",
+    "related_resources": [
+      {{
+        "resource_id": "The ID of the affected resource",
+        "resource_type": "The AWS resource type",
+        "resource_name": "Optional name of the resource if available"
+      }}
+    ],
+    "region": "AWS region where the alarm was triggered",
+    "account_id": "AWS account ID",
+    "metric_details": {{
+      "namespace": "CloudWatch namespace",
+      "metric_name": "Name of the metric",
+      "threshold": "Threshold value that was crossed",
+      "current_value": "Current value that triggered the alarm",
+      "period": "Evaluation period"
+    }}
+  }},
+  "possible_causes": [
+    "Detailed description of potential cause 1",
+    "Detailed description of potential cause 2",
+    "Detailed description of potential cause 3"
+  ],
+  "additional_info": {{
+    "trace_search_criteria": "X-Ray trace search criteria if applicable",
+    "related_services": ["List of related AWS services"],
+    "recommended_metrics_to_check": ["Additional metrics to investigate"]
+  }}
+}}
+
+IMPORTANT: Return ONLY the JSON object, no additional text or explanation.
+"""

@@ -1,0 +1,1 @@
+# Logs collector test module

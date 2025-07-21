@@ -1,0 +1,82 @@
+{
+  "messages": [
+    {
+      "content": "Analyze the root cause of database connection failures affecting the application"
+    }
+  ],
+  "context": {
+    "alarm_analysis": {
+      "identified_alarm_types": ["DatabaseConnectionFailures"],
+      "severity": "High",
+      "extracted_info": {
+        "alarm_name": "RDS-Connection-Failures",
+        "alarm_start_time": "2025-06-10T02:05:00Z",
+        "related_resources": [
+          {
+            "resource_id": "prod-postgres-db",
+            "resource_type": "AWS::RDS::DBInstance",
+            "resource_name": "Production Database"
+          }
+        ],
+        "region": "us-east-1",
+        "account_id": "123456789012",
+        "metric_details": {
+          "namespace": "AWS/RDS",
+          "metric_name": "DatabaseConnections",
+          "threshold": "80",
+          "current_value": "95",
+          "period": "300"
+        }
+      },
+      "possible_causes": [
+        "Connection pool exhaustion",
+        "Database instance resource constraints",
+        "Network connectivity issues"
+      ]
+    },
+    "resource_info": {
+      "db_details": {
+        "db_instance_id": "prod-postgres-db",
+        "engine": "postgres",
+        "engine_version": "13.7",
+        "instance_class": "db.t3.medium",
+        "allocated_storage": 100
+      },
+      "metrics": {
+        "connections": [
+          {"timestamp": "2025-06-10T01:45:00Z", "value": 65},
+          {"timestamp": "2025-06-10T01:50:00Z", "value": 78},
+          {"timestamp": "2025-06-10T01:55:00Z", "value": 89},
+          {"timestamp": "2025-06-10T02:00:00Z", "value": 95}
+        ],
+        "cpu_utilization": [
+          {"timestamp": "2025-06-10T01:45:00Z", "value": 45},
+          {"timestamp": "2025-06-10T01:50:00Z", "value": 62},
+          {"timestamp": "2025-06-10T01:55:00Z", "value": 78},
+          {"timestamp": "2025-06-10T02:00:00Z", "value": 85}
+        ]
+      }
+    },
+    "logs_data": {
+      "logs": [
+        {"timestamp": "2025-06-10T01:50:12Z", "message": "Connection pool exhausted - max connections reached"},
+        {"timestamp": "2025-06-10T01:52:45Z", "message": "Failed to acquire database connection after 30s timeout"},
+        {"timestamp": "2025-06-10T01:55:30Z", "message": "Database connection refused - too many clients"},
+        {"timestamp": "2025-06-10T01:58:22Z", "message": "Application unable to connect to database"}
+      ],
+      "summary": "Database connection pool exhausted with multiple connection timeouts"
+    },
+    "cloudtrail_data": {
+      "events": [
+        {
+          "event_id": "evt-12345",
+          "timestamp": "2025-06-10T01:30:00Z",
+          "type": "APPLICATION_DEPLOYMENT",
+          "description": "New application version deployed with increased database usage"
+        }
+      ],
+      "metrics": [],
+      "config": []
+    }
+  }
+}

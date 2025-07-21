@@ -1,0 +1,42 @@
+{
+  "messages": [
+    {
+      "content": {
+        "resource_info": {
+          "involved_resources": [
+            "web-server-cluster",
+            "load-balancer",
+            "database-primary"
+          ],
+          "resource_states": [
+            {"resource": "ec2", "state": "degraded", "cpu": 85},
+            {"resource": "elb", "state": "healthy", "connections": 1200},
+            {"resource": "rds", "state": "high_load", "connections": 95}
+          ],
+          "resource_issues": [
+            "High CPU utilization on web servers",
+            "Database connection pool near limit",
+            "Load balancer showing increased latency"
+          ]
+        }
+      }
+    }
+  ],
+  "context": {
+    "alarm_analysis": {
+      "identified_alarm_types": ["HighCPUUtilization"],
+      "severity": "Medium",
+      "extracted_info": {
+        "alarm_name": "Web-Server-High-CPU",
+        "related_resources": [
+          {"resource_id": "web-server-cluster", "resource_type": "AWS::EC2::Instance"}
+        ]
+      }
+    },
+    "initial_decision": {
+      "alert_type": "HighCPUUtilization",
+      "severity": "Medium",
+      "recommended_path": "resource"
+    }
+  }
+}

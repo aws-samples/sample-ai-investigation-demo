@@ -1,0 +1,41 @@
+{
+  "identified_alarm_types": ["API Gateway Error Rate"],
+  "severity": "High",
+  "extracted_info": {
+    "alarm_name": "API-Gateway-Error-Rate-High",
+    "alarm_start_time": "2025-06-10T02:00:00Z",
+    "related_resources": [
+      {
+        "resource_id": "OrdersAPI",
+        "resource_type": "AWS::ApiGateway::RestApi",
+        "resource_name": "OrdersAPI API"
+      }
+    ],
+    "region": "us-east-1",
+    "account_id": "123456789012",
+    "metric_details": {
+      "namespace": "AWS/ApiGateway",
+      "metric_name": "5XXError",
+      "threshold": "1.0",
+      "current_value": "12.3",
+      "period": "5 minutes"
+    }
+  },
+  "possible_causes": [
+    "Backend Lambda function errors or timeouts",
+    "Integration endpoint failures or connectivity issues",
+    "Authorization or authentication failures",
+    "Resource constraints or throttling"
+  ],
+  "additional_info": {
+    "trace_search_criteria": "service(id(name: \"OrdersAPI\", type: \"AWS::ApiGateway::RestApi\"))",
+    "related_services": ["EC2", "CloudWatch", "ApiGateway", "Lambda"],
+    "recommended_metrics_to_check": [
+      "5XXError",
+      "4XXError",
+      "Latency",
+      "IntegrationLatency",
+      "Count"
+    ]
+  }
+}

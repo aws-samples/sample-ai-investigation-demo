@@ -1,0 +1,97 @@
+# AIOps Node Configuration
+# This file configures model settings and unified naming for all nodes
+
+nodes:
+  alarm_analyzer:
+    display_name: 'Alarm Analyzer'
+    model_id: 3
+    max_tokens: 10000
+    description: 'Analyzes alarm details and extracts structured information'
+
+  decision:
+    display_name: 'Decision Maker'
+    model_id: 2
+    max_tokens: 4000
+    description: 'Makes routing decisions based on alarm analysis'
+
+  cloudtrail_collector:
+    display_name: 'CloudTrail Collector'
+    model_id: 4
+    max_tokens: 20000
+    description: 'Collects and analyzes CloudTrail events'
+
+  trace_finder:
+    display_name: 'Trace Finder'
+    model_id: 3
+    max_tokens: 15000
+    description: 'Finds and analyzes distributed traces'
+
+  resource_collector:
+    display_name: 'Resource Collector'
+    model_id: 3
+    max_tokens: 15000
+    description: 'Collects AWS resource information'
+
+  logs_collector:
+    display_name: 'Logs Collector'
+    model_id: 4
+    max_tokens: 25000
+    description: 'Collects and analyzes application logs'
+
+  trace_graph_analyzer:
+    display_name: 'Trace Graph Analyzer'
+    model_id: 4
+    max_tokens: 10000
+    description: 'Analyzes X-Ray service graphs and identifies problematic trace nodes'
+
+# Model definitions for reference
+models:
+  0:
+    name: 'Claude 3.5 Haiku'
+    type: 'xml_agent'
+    model_id: 'anthropic.claude-3-5-haiku-20241022-v1:0'
+    region: 'us-west-2'
+
+  1:
+    name: 'Claude 3.5 Sonnet (v1)'
+    type: 'xml_agent'
+    model_id: 'anthropic.claude-3-5-sonnet-20240620-v1:0'
+    region: 'us-west-2'
+
+  2:
+    name: 'Claude 3.5 Sonnet (v2)'
+    type: 'xml_agent'
+    model_id: 'anthropic.claude-3-5-sonnet-20241022-v2:0'
+    region: 'us-west-2'
+
+  3:
+    name: 'Nova Pro'
+    type: 'function_call_agent'
+    model_id: 'us.amazon.nova-pro-v1:0'
+    region: 'us-west-2'
+
+  4:
+    name: 'Nova Premier'
+    type: 'function_call_agent'
+    model_id: 'us.amazon.nova-premier-v1:0'
+    region: 'us-west-2'
+
+  5:
+    name: 'Claude 3.7 Sonnet'
+    type: 'function_call_agent'
+    model_id: 'us.anthropic.claude-3-7-sonnet-20250219-v1:0'
+    region: 'us-west-2'
+
+# Environment-specific overrides (optional)
+environments:
+  development:
+    # Use cheaper models for development
+    default_model_id: 0 # Claude Haiku
+
+  staging:
+    # Use production-like models for staging
+    default_model_id: 3 # Nova Pro
+
+  production:
+    # Use best models for production
+    default_model_id: 4 # Nova Premier
