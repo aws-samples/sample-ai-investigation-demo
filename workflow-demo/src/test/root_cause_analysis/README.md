@@ -11,7 +11,6 @@ This directory contains custom test scripts specifically for testing the root_ca
 To run a test, navigate to the src directory and execute the test script:
 
 ```bash
-cd /Users/yagrxu/me/collaborations/2025/aiops/ai-investigation-demo/src
 ./local/root_cause_analysis/test_custom_root_cause.py
 ```
 

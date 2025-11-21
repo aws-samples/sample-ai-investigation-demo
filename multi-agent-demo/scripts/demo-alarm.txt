@@ -1,0 +1,25 @@
+You are receiving this email because your Amazon CloudWatch Alarm "serverless-app-for-aiops-GetItemByIdAlarm79D169FD-wj2dpKrFvjm0" in the Asia Pacific (Singapore) region has entered the ALARM state, because "Threshold Crossed: 2 out of the last 3 datapoints [100.0 (06/11/25 09:26:00), 100.0 (06/11/25 09:25:00)] were greater than or equal to the threshold (20.0) and 1 missing datapoint was treated as [NonBreaching] (minimum 2 datapoints for OK -> ALARM transition)." at "Thursday 06 November, 2025 09:27:00 UTC".
+
+View this alarm in the AWS Management Console:
+https://ap-southeast-1.console.aws.amazon.com/cloudwatch/deeplink.js?region=ap-southeast-1#alarmsV2:alarm/serverless-app-for-aiops-GetItemByIdAlarm79D169FD-wj2dpKrFvjm0
+
+Alarm Details:
+- Name:                       serverless-app-for-aiops-GetItemByIdAlarm79D169FD-wj2dpKrFvjm0
+- Description:                API Gateway GET /items/{id} success rate below 80%
+- State Change:               OK -> ALARM
+- Reason for State Change:    Threshold Crossed: 2 out of the last 3 datapoints [100.0 (06/11/25 09:26:00), 100.0 (06/11/25 09:25:00)] were greater than or equal to the threshold (20.0) and 1 missing datapoint was treated as [NonBreaching] (minimum 2 datapoints for OK -> ALARM transition).
+- Timestamp:                  Thursday 06 November, 2025 09:27:00 UTC
+- AWS Account:                613477150601
+- Alarm Arn:                  arn:aws:cloudwatch:ap-southeast-1:613477150601:alarm:serverless-app-for-aiops-GetItemByIdAlarm79D169FD-wj2dpKrFvjm0
+
+Threshold:
+- The alarm is in the ALARM state when the metric is GreaterThanOrEqualToThreshold 20.0 for at least 2 of the last 3 period(s) of 60 seconds.
+
+Monitored Metrics:
+- MetricExpression:           (m1 / m2) * 100
+- MetricLabel:                No Label
+
+State Change Actions:
+- OK:
+- ALARM: [arn:aws:sns:ap-southeast-1:613477150601:serverless-app-for-aiops-ApiAlarmTopic6B0CC567-etwVu8F2Ukjp]
+- INSUFFICIENT_DATA:

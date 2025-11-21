@@ -19,21 +19,18 @@ The `samples` directory contains sample alarm analysis JSON files:
 ### Testing with All Sample Files
 
 ```bash
-cd /Users/yagrxu/me/collaborations/2025/aiops/ai-investigation-demo/src
 python local/decision/test.py --all
 ```
 
 ### Testing with a Specific Sample File
 
 ```bash
-cd /Users/yagrxu/me/collaborations/2025/aiops/ai-investigation-demo/src
 python local/decision/test.py --file local/decision/samples/api_gateway_alarm.json
 ```
 
 ### Testing with a Custom Message
 
 ```bash
-cd /Users/yagrxu/me/collaborations/2025/aiops/ai-investigation-demo/src
 python local/decision/test.py --file local/decision/samples/rds_connection_alarm.json --message "Please analyze this RDS connection alarm"
 ```
 

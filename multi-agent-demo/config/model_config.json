@@ -1,0 +1,38 @@
+{
+  "default_model": {
+    "provider": "bedrock",
+    "model_id": "apac.amazon.nova-pro-v1:0",
+    "region": "ap-southeast-1",
+    "cross_region_inference_enabled": true
+  },
+  "agent_models": {
+    "brain_agent": {
+      "provider": "bedrock",
+      "model_id": "apac.amazon.nova-pro-v1:0",
+      "region": "ap-southeast-1",
+      "cross_region_inference_enabled": true,
+      "max_tokens": 4096,
+      "temperature": 0.1
+    },
+    "executor_agent": {
+      "provider": "bedrock",
+      "model_id": "anthropic.claude-3-haiku-20240307-v1:0",
+      "region": "ap-southeast-1",
+      "cross_region_inference_enabled": true,
+      "max_tokens": 2048,
+      "temperature": 0
+    },
+    "evaluator_agent": {
+      "provider": "bedrock",
+      "model_id": "apac.amazon.nova-pro-v1:0",
+      "region": "ap-southeast-1",
+      "cross_region_inference_enabled": true,
+      "max_tokens": 3072,
+      "temperature": 0.2
+    }
+  },
+  "fallback_models": [
+    "us.anthropic.claude-3-5-sonnet-20241022-v2:0",
+    "anthropic.claude-3-haiku-20240307-v1:0"
+  ]
+}

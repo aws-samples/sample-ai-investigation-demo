@@ -12,7 +12,7 @@ This directory contains custom test scripts for testing individual components of
 To run a test, navigate to the src directory and execute the test script:
 
 ```bash
-cd /Users/yagrxu/me/collaborations/2025/aiops/ai-investigation-demo/src
+cd ./ai-investigation-demo/src
 ./local/alarm_analyzer/test_custom_rds_alarm.py
 ```
 
