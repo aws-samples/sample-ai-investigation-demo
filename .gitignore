@@ -11,6 +11,7 @@ downloads/
 eggs/
 .eggs/
 lib/
+!multi-agent-demo/cdk/lib/
 lib64/
 parts/
 sdist/
